@@ -36,12 +36,13 @@ function getCacheData({ date, isins }, cache) {
 function addToCache(date, nonCachedData, cache) {
   nonCachedData.reduce((acc, item) => {
     const isin = item.isin;
-    if (!cache[isin]) {
-      cache[isin] = {};
+    if (!acc[isin]) {
+      acc[isin] = {};
     }
-    cache[isin][date] = {
+    acc[isin][date] = {
       data: `cached${item.data}`,
     };
+    return acc;
   }, cache);
   return cache;
 }
