@@ -99,12 +99,12 @@ function getMockData() {
     '20200110',
   ];
   const mockData = {};
-  isins.reduce((isinAcc, isin) => {
+  isins.forEach((isin) => {
     mockData[isin] = {};
-    date.reduce((dateAcc, date) => {
+    date.forEach((date) => {
       mockData[isin][date] = { data: 'nocached' };
-    }, mockData);
-  }, mockData);
+    });
+  });
   return mockData;
 }
 
